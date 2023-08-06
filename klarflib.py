@@ -23,7 +23,6 @@
 # 
 # TODO : 
 # write the helper functions to better navigate the data
-# remove re dependency
 
 
 class klarf(object):
@@ -388,10 +387,12 @@ class klarf(object):
         with open(file,"r") as f:
             file_content = f.read()
 
-        #remove newlines, there are usefull for parsing visually but I don't think they're needed
+        #remove newlines, there are usefull for parsing visually but I don't think they're needed for the parsing
         file_content = file_content.replace("\n","")
 
         # collapse duplicate space
+        # initialy I used this : re.sub(' +', ' ', file_content)
+        # but to remove the dependency I'll do it like that :  (I think it should fairly fast as n iterations will remove up to 2**n spaces) 
         l = len(file_content)
         while True:
             l = len(file_content)
@@ -399,17 +400,9 @@ class klarf(object):
             if len(file_content) == l:
                 break
 
-        #re.sub(' +', ' ', file_content)
         end = len(file_content)
-
-
         start = 0
-        part = ""
-
-        #stop = seek_next_caracter(file_content,caracter="{",start=start)
-        #entry  = file_content[start:stop].strip()
-
-        self.parse_level(file_content, level_start=0, level_stop= end, dest_dict = dest_dict)
+        self.parse_level(file_content, level_start=0, level_stop=end, dest_dict=dest_dict)
 
         return
     
