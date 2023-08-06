@@ -1,4 +1,4 @@
-import klarflib
+import klarflio
 
 
 
@@ -43,9 +43,9 @@ print("After this first test I will modify the data on one klarf and check that 
 
 
 #klarf_file = klarf()
-klarf_file_ref = klarflib.klarf("./testfile_v1.8.klarf")
+klarf_file_ref = klarfio.klarf("./testfile_v1.8.klarf")
 klarf_file_ref.export_klarf("./test_output.klarf")
-klarf_file_after_export = klarflib.klarf("./test_output.klarf")
+klarf_file_after_export = klarfio.klarf("./test_output.klarf")
 
 print("Any diff ?")
 assert recursive_compare(klarf_file_ref.data, klarf_file_after_export.data)
