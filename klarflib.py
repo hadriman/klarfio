@@ -19,7 +19,7 @@
 # In particular I don't need to know all the fields that will be present or their expected size.
 # The only things needed are the general syntax with the spaces { } , ; characters and "Columns" and "Data" types of entries.
 # 
-# For writing the klarf file we need to know a little bit more
+# For writing the klarf file we need to know a little bit more but not that much either
 # 
 # TODO : 
 # write the helper functions to better navigate the data
