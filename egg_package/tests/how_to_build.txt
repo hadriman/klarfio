@@ -10,9 +10,10 @@ this folder contains at least this stuff :
 
 run :
 > python -m build
-this will generate a bunch of files and folders (the package it self is in the ./dist folder)
+this will generate a bunch of files and folders (the package itself is in the ./dist folder)
 
 make sure the dist folder only contains the latest version otherwise the upload to pypi won't work
+(or modify the command to only select the proper version)
 
 then upload to Pypi repo with :
 > python -m twine upload --repository pypi dist/*
