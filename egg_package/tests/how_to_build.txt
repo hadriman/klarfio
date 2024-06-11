@@ -1,0 +1,17 @@
+go in the egg_package folder
+this folder contains at least this stuff :
+    egg_package/pyproject.toml
+    egg_package/README.md
+    egg_package/LICENSE
+    egg_package/src
+    egg_package/src/klarfio
+    egg_package/src/klarfio/klarfio.py
+    egg_package/src/klarfio/__init__.py
+
+run :
+> python -m build
+this will generate a bunch of files and folder (the package it self is in the ./dist folder)
+
+then upload to Pypi repo with :
+> python -m twine upload --repository pypi dist/*
+> input pypi token (starts with "pypi-" followed by 200 characters)
