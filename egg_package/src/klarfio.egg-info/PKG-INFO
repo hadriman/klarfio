@@ -1,10 +1,11 @@
 Metadata-Version: 2.1
 Name: klarfio
-Version: 0.9
+Version: 0.9.1
 Summary: Minimalist python module to read and write klarf files
 Author: hadriman
 Project-URL: Homepage, https://github.com/hadriman/klarfio
 Project-URL: Bug Tracker, https://github.com/hadriman/klarfio/issues
+Keywords: klarf,defect,wafer,parser,read,write,v1.8,v1.2
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 Classifier: Operating System :: OS Independent
