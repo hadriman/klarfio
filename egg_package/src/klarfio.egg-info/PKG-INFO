@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: klarfio
+Version: 0.1
+Summary: Minimalist python module to read and write klarf files
+Author: hadriman
+Project-URL: Homepage, https://github.com/hadriman/klarfio
+Project-URL: Bug Tracker, https://github.com/hadriman/klarfio/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: File Formats
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# klarfio
+Minimalist python library to read and write Klarf v1.8 files. <br/>
+This module is a pure python module, there are no dependencies.<br/>
+The idea is that once the data is loaded, you can copy the defects data into a numpy array or a pandas dataframe.<br/>
+
+The data of the klarf file is held in a nested dictionnary that follows closely the structure of the klarf file itself.
+
+I plan on adding a few helper functions to simplify the access to the defect data.
+
+Note : This code is based on the one klarf v1.8 I had on hand. I don't have more files to test with.

@@ -78,12 +78,10 @@ class klarf_v1_8(object):
 
         if (filename is None) and (populate == True):
 
-            self.data = {'FileRecord_1.8': {
-                'RecordName': '1.8',
-                 "LotRecord_FirstLotID" :  {
-                     'RecordName': 'FirstLotID',
-                           "WaferRecord_FirstWaferID" :   {
-                               'RecordName': "FirstWaferID" ,
+            self.data = {"LotRecord" : 
+                    {"FirstLotID" : 
+                         {"WaferRecord" : 
+                              {"FirstWaferID" : {
                                 "DieOrigin" : [0, 0],
                                 "OrientationInstructions": [""],
                                 "ProcessEquipmentState" :  ["NONE", "", "", "", "", ""],
@@ -260,7 +258,7 @@ class klarf_v1_8(object):
                                     },
                                 }, 
                                },
-                            
+                              },
                           "DeviceID" : ["aDevice"],
                           "DiePitch" : [1, 1],
                           "InspectionStationID"  : ["NONE", "A", "B"],
@@ -282,12 +280,12 @@ class klarf_v1_8(object):
                                          ],
                              "Data" : [
                                 [0,"Unclassified",""],
-                                      ],
+                                      ]
 
-                            },  
-                        },
-                "FileTimestamp" : ["01-01-2000", "00:00:00"],                         
-                },
+                            }
+                         },
+                    },
+                "FileTimestamp" : ["01-01-2000", "00:00:00"],
                }
             
         elif filename is not None:
@@ -583,59 +581,216 @@ class klarf_v1_2(object):
         self.version = "1.2"
 
         if (filename is None) and (populate == True):
-            self.data = {'FileRecord_1.2' : {
-                'FileVersion': [1, 2],
-                'FileTimeStamp': ["01-01-2000", "00:00:00"],
-                'InspectionStationID': [""],
-                'SampleType': [""],
-                'ResultTimestamp': ["01-01-2000", "00:00:00"],
-                'LotID': ['', ''],
-                'SampleSize': [0, 0],
-                'DeviceID': [''],
-                'SetupID': [''],
-                'StepID': [''],
-                'SampleOrientationMarkType': [''],
-                'OrientationMarkLocation': [''],
-                'DiePitch': [1.0, 1.0],
-                'DieOrigin': [0.0, 0.0],
-                'WaferID': ['', 0],
-                'Slot': [0],
-                'SampleCenterLocation': [1.0, 1.0],
-                'OrientationInstructions': [''],
-                'CoordinatesMirrored': [''],
-                'CoordinatesCentered': [''],
-                'InspectionOrientation': [''],
-                'InspectionTest': [1],
-                'SampleTestPlan': [0, '\n', 0, 0],
-                'AreaPerTest': [1.0],
-                'ClusterClassificationOnelineList': [0, 0, 0],
-                'DefectList': {'Columns': [{'Type': 'int32', 'Column': 'DEFECTID'},
-                {'Type': 'float', 'Column': 'XREL'},
-                {'Type': 'float', 'Column': 'YREL'},
-                {'Type': 'int32', 'Column': 'XINDEX'},
-                {'Type': 'int32', 'Column': 'YINDEX'},
-                {'Type': 'float', 'Column': 'XSIZE'},
-                {'Type': 'float', 'Column': 'YSIZE'},
-                {'Type': 'float', 'Column': 'DEFECTAREA'},
-                {'Type': 'float', 'Column': 'DSIZE'},
-                {'Type': 'int32', 'Column': 'CLASSNUMBER'},
-                {'Type': 'int32', 'Column': 'TEST'},
-                {'Type': 'int32', 'Column': 'CLUSTERNUMBER'},
-                {'Type': 'int32', 'Column': 'ROUGHBINNUMBER'},
-                {'Type': 'int32', 'Column': 'FINEBINNUMBER'},
-                {'Type': 'int32', 'Column': 'REVIEWSAMPLE'},
-                {'Type': 'int32', 'Column': 'IMAGECOUNT'},
-                {'Type': 'str', 'Column': 'IMAGELIST'}],
-                'Data': []},
-                'ProcessEquipmentIDOnelineList': [1, ''],
-                'SummarySpec': [6, '\n',  '',  '',  '',  '',  ''],
-                'SummaryShortList': [0, 0, 1.0, 0, 0],
-                'FileTimestamp': ["01-01-2000", "00:00:00"],
-                'TiffSpec': ['', '', ''],
-                'ResultsID': ['', ''],
-                'ProcessEquipmentIDShortList': ['']}
-            }
 
+            self.data = {"LotRecord" : 
+                    {"FirstLotID" : 
+                         {"WaferRecord" : 
+                              {"FirstWaferID" : {
+                                "DieOrigin" : [0, 0],
+                                "OrientationInstructions": [""],
+                                "ProcessEquipmentState" :  ["NONE", "", "", "", "", ""],
+                                "SampleCenterLocation" : [0, 0],
+                                "SlotNumber" : [0],
+                                "DefectList" : {
+                                      "Columns" : [
+                                        {"Type" : "int32",
+                                        "Column" : "DEFECTID"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "XREL"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "YREL"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "XINDEX"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "YINDEX"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "XSIZE"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "YSIZE"},
+
+                                        {"Type" : "float",
+                                        "Column" : "DEFECTAREA"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "DSIZE"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "CLASSNUMBER"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "TEST"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "ROUGHBINNUMBER"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "FINEBINNUMBER"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "SAMPLEBINNUMBER"},
+
+                                        {"Type" : "float",
+                                        "Column" : "CONTRAST"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "CHANNELID"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "MANSEMCLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "AUTOONSEMCLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "MICROSIGCLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "MACROSIGCLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "AUTOOFFSEMCLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "AUTOOFFOPTADC"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "FACLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "INTENSITY"},
+
+                                        {"Type" : "float",
+                                        "Column" : "KILLPROB"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "MACROSIGID"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "REGIONID"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "EVENTTYPE"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "EBRLINE"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "POLARITY"},
+
+                                        {"Type" : "float",
+                                        "Column" : "CRITICALAREA"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "MANOPTCLASS"},
+
+                                        {"Type" : "float",
+                                        "Column" : "PHI"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "DBCLASS"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "DBGROUP"},
+
+                                        {"Type" : "float",
+                                        "Column" : "DBCRITICALITYINDEX"},
+
+                                        {"Type" : "float",
+                                        "Column" : "CELLSIZE"},
+
+                                        {"Type" : "int32",
+                                        "Column" : "CAREAREAGROUPCODE"},
+
+                                        {"Type" : "float",
+                                        "Column" : "PCI"},
+
+                                        {"Type" : "float",
+                                        "Column" : "LINECOMPLEXITY"},
+
+                                        {"Type" : "float",
+                                        "Column" : "DCIRANGE"},
+                                      ],
+                                      "Data" : [[1]+[0,]*40],
+                                },
+                                "TestRecord" : {
+                                    "FirstTestRecordID" :  
+                                      {"AreaPerTest" : [1],
+                                       "SampleTestPlanList" : {
+                                           "Columns" : [
+                                               {"Type" : "int32",
+                                                "Column" : "XINDEX"},
+                                               {"Type" : "int32",
+                                                "Column" : "YINDEX"}
+                                                 ],
+                                           "Data" : [[0,0],],
+                                           },
+                                      },
+                                },
+                                "SummaryRecord" : {
+                                    "TestSummaryList"  : {
+                                        "Columns" : [
+                                           {"Type" : "int32",
+                                            "Column" : "TESTNO"},
+                                           {"Type" : "int32",
+                                            "Column" : "NDEFECT"},
+                                           {"Type" : "float",
+                                            "Column" : "DEFDENSITY"},
+                                           {"Type" : "int32",
+                                            "Column" : "NDIE"},
+                                           {"Type" : "int32",
+                                            "Column" : "NDEFDIE"},
+                                           {"Type" : "float",
+                                            "Column" : "HAZEREGION"},
+                                           {"Type" : "float",
+                                            "Column" : "HAZEAVERAGE"},
+                                           {"Type" : "float",
+                                            "Column" : "HAZESTDDEV"},
+                                           {"Type" : "float",
+                                            "Column" : "HAZEMEDIAN"},
+                                           {"Type" : "float",
+                                            "Column" : "HAZEPEAK"},
+                                           {"Type" : "float",
+                                            "Column" : "AREAPERTEST"},
+                                             ],
+                                       "Data" : [[1, 4, 3.0e-308,  4,  4, 2.0e+032,  0,  2.0e-039,  2.0e-039,  2.0e-039,  2.00e+015 ],], 
+                                    },
+                                }, 
+                               },
+                              },
+                          "DeviceID" : ["aDevice"],
+                          "DiePitch" : [1, 1],
+                          "InspectionStationID"  : ["NONE", "A", "B"],
+                          "OrientationMarkLocation" : [0],
+                          "RecipeID" : ["ARecipe", "01-01-2000", "00:00:00"],
+                          "RecipeVersion"  : ["", "NONE", ""],
+                          "ResultTimestamp" : ["01-01-2000", "00:00:00"],
+                          "SampleOrientationMarkType" : ["NOTCH"],
+                          "SampleSize": [1, 1],
+                          "SampleType" : ["WAFER"],
+                          "StepID" :  ["AStepId"],
+                          "ClassLookupList" : 
+                            {"Columns" : [{"Type" : "int32",
+                                          "Column" : "CLASSNUMBER"},
+                                          {"Type" : "string",
+                                          "Column" : "CLASSNAME"},
+                                          {"Type" : "string",
+                                          "Column" : "CLASSCODE"},
+                                         ],
+                             "Data" : [
+                                [0,"Unclassified",""],
+                                      ]
+
+                            }
+                         },
+                    },
+                "FileTimestamp" : ["01-01-2000", "00:00:00"],
+               }
             
         elif filename is not None:
             self.data = { "FileRecord_1.2": {}}
